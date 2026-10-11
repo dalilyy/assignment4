@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 4 — Forms and Validation</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <style>
+    body {
+      background: #eef2f7;
+      color: #203047;
+    }
+
+    main {
+      max-width: 960px;
+    }
+
+    header {
+      padding: 40px 0 24px;
+    }
+
+    section {
+      background: white;
+      border: 1px solid #dce3ed;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 20px rgb(32 48 71 / 5%);
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .basic-field {
+      margin-bottom: 16px;
+    }
+
+    .basic-field label {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .basic-field input,
+    .basic-field textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #929eae;
+      border-radius: 4px;
+    }
+
+    .basic-button {
+      padding: 8px 20px;
+      border: 1px solid #203047;
+      border-radius: 4px;
+      background: #203047;
+      color: white;
+    }
+
+    @media (max-width: 576px) {
+      section {
+        padding: 20px;
+      }
+    }
+  </style>
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <main class="container pb-4">
+    <header>
+      <p class="text-primary fw-semibold mb-2">WEB TECHNOLOGIES</p>
+      <h1>Forms and Validation</h1>
+      <p class="text-secondary">
+        Assignment 4: HTML5 forms, Bootstrap styling and validation.
+      </p>
+      <nav class="d-flex flex-wrap gap-2" aria-label="Assignment tasks">
+        <a href="#task0" class="btn btn-outline-primary btn-sm">Task 0</a>
+        <a href="#task1" class="btn btn-outline-primary btn-sm">Task 1</a>
+        <a href="#task2" class="btn btn-outline-primary btn-sm">Task 2</a>
+        <a href="#task3" class="btn btn-outline-primary btn-sm">Task 3</a>
+        <a href="#task4" class="btn btn-outline-primary btn-sm">Task 4</a>
+      </nav>
+    </header>
+
+    <!-- Part 1: Basic HTML Forms -->
+    <section id="task0">
+      <h2>Task 0. Simple Contact Form</h2>
+
+      <form class="demo-form">
+        <div class="basic-field">
+          <label for="name0">Name</label>
+          <input id="name0" name="name" type="text">
+        </div>
+
+        <div class="basic-field">
+          <label for="email0">Email</label>
+          <input id="email0" name="email" type="email">
+        </div>
+
+        <div class="basic-field">
+          <label for="message0">Message</label>
+          <textarea id="message0" name="message" rows="3"></textarea>
+        </div>
+
+        <button class="basic-button" type="submit">Submit</button>
+        <p class="form-status mt-3 mb-0" role="status"></p>
+      </form>
+    </section>
+
+    <section id="task1">
+      <h2>Task 1. HTML5 Validation</h2>
+      <p class="text-secondary">
+        Submit empty fields or enter an incorrect email to see browser validation.
+      </p>
+
+      <form class="demo-form">
+        <div class="basic-field">
+          <label for="name1">Name</label>
+          <input
+            id="name1" name="name" type="text"
+            required minlength="2" maxlength="50"
+          >
+        </div>
+
+        <div class="basic-field">
+          <label for="email1">Email</label>
+          <input
+            id="email1" name="email" type="email"
+            required maxlength="100"
+          >
+        </div>
+
+        <div class="basic-field">
+          <label for="message1">Message</label>
+          <textarea
+            id="message1" name="message" rows="3"
+            required minlength="10" maxlength="500"
+            aria-describedby="message1-help"
+          ></textarea>
+          <small id="message1-help">Use 10–500 characters.</small>
+        </div>
+
+        <button class="basic-button" type="submit">Submit</button>
+        <p class="form-status mt-3 mb-0" role="status"></p>
+      </form>
+    </section>
+
+    <!-- Part 2: Bootstrap Forms -->
+    <section id="task2">
+      <h2>Task 2. Bootstrap Form Styling</h2>
+
+      <form class="demo-form row g-3">
+        <div class="col-md-6">
+          <label for="name2" class="form-label">Name</label>
+          <input
+            id="name2" name="name" type="text" class="form-control"
+            placeholder="Your name" required minlength="2" maxlength="50"
+          >
+        </div>
+
+        <div class="col-md-6">
+          <label for="email2" class="form-label">Email</label>
+          <input
+            id="email2" name="email" type="email" class="form-control"
+            placeholder="name@example.com" required
+            aria-describedby="email2-help"
+          >
+          <div id="email2-help" class="form-text">
+            Enter an address where we can contact you.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="message2" class="form-label">Message</label>
+          <textarea
+            id="message2" name="message" class="form-control" rows="3"
+            placeholder="How can we help you?"
+            required minlength="10" maxlength="500"
+          ></textarea>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="form-status mt-3 mb-0" role="status"></p>
+        </div>
+      </form>
+    </section>
+
+    <section id="task3">
+      <h2>Task 3. Bootstrap Validation Styles</h2>
+
+      <form class="custom-validation row g-3" novalidate>
+        <div class="col-md-6">
+          <label for="name3" class="form-label">Name</label>
+          <input
+            id="name3" name="name" type="text" class="form-control"
+            placeholder="Your name" required minlength="2" maxlength="50"
+            aria-describedby="name3-error name3-valid"
+          >
+          <div id="name3-error" class="invalid-feedback">
+            Enter a name with 2–50 characters.
+          </div>
+          <div id="name3-valid" class="valid-feedback">Looks good!</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="email3" class="form-label">Email</label>
+          <input
+            id="email3" name="email" type="email" class="form-control"
+            placeholder="name@example.com" required
+            aria-describedby="email3-error email3-valid"
+          >
+          <div id="email3-error" class="invalid-feedback">
+            Enter a valid email address.
+          </div>
+          <div id="email3-valid" class="valid-feedback">Looks good!</div>
+        </div>
+
+        <div class="col-12">
+          <label for="message3" class="form-label">Message</label>
+          <textarea
+            id="message3" name="message" class="form-control" rows="3"
+            placeholder="Write your message"
+            required minlength="10" maxlength="500"
+            aria-describedby="message3-error message3-valid"
+          ></textarea>
+          <div id="message3-error" class="invalid-feedback">
+            Enter a message with 10–500 characters.
+          </div>
+          <div id="message3-valid" class="valid-feedback">Looks good!</div>
+        </div>
+
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <p class="form-status mt-3 mb-0" role="status"></p>
+        </div>
+      </form>
+    </section>
+
+    <!-- Part 3: Advanced Form Project -->
+    <section id="task4">
+      <h2>Task 4. Registration Form</h2>
+      <p class="text-secondary">
+        Create your profile. All fields except hobbies are required.
+      </p>
+
+      <form id="registration" class="custom-validation row g-3" novalidate>
+        <div class="col-md-6">
+          <label for="firstName" class="form-label">First Name</label>
+          <input
+            id="firstName" name="firstName" type="text"
+            class="form-control" autocomplete="given-name"
+            required minlength="2" maxlength="50"
+            aria-describedby="firstName-error firstName-valid"
+          >
+          <div id="firstName-error" class="invalid-feedback">
+            Enter your first name (2–50 characters).
+          </div>
+          <div id="firstName-valid" class="valid-feedback">Looks good!</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input
+            id="lastName" name="lastName" type="text"
+            class="form-control" autocomplete="family-name"
+            required minlength="2" maxlength="50"
+            aria-describedby="lastName-error lastName-valid"
+          >
+          <div id="lastName-error" class="invalid-feedback">
+            Enter your last name (2–50 characters).
+          </div>
+          <div id="lastName-valid" class="valid-feedback">Looks good!</div>
+        </div>
+
+        <div class="col-12">
+          <label for="registrationEmail" class="form-label">Email</label>
+          <input
+            id="registrationEmail" name="email" type="email"
+            class="form-control" autocomplete="email"
+            placeholder="name@example.com" required
+            aria-describedby="registrationEmail-error registrationEmail-valid"
+          >
+          <div id="registrationEmail-error" class="invalid-feedback">
+            Enter a valid email address.
+          </div>
+          <div id="registrationEmail-valid" class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="password" class="form-label">Password</label>
+          <input
+            id="password" name="password" type="password"
+            class="form-control" autocomplete="new-password"
+            required minlength="8"
+            aria-describedby="password-help password-error password-valid"
+          >
+          <div id="password-help" class="form-text">
+            Use at least 8 characters.
+          </div>
+          <div id="password-error" class="invalid-feedback">
+            Password must contain at least 8 characters.
+          </div>
+          <div id="password-valid" class="valid-feedback">Looks good!</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input
+            id="confirmPassword" name="confirmPassword" type="password"
+            class="form-control" autocomplete="new-password"
+            required minlength="8"
+            aria-describedby="confirmPassword-error confirmPassword-valid"
+          >
+          <div id="confirmPassword-error" class="invalid-feedback">
+            Repeat your password exactly.
+          </div>
+          <div id="confirmPassword-valid" class="valid-feedback">
+            Passwords match!
+          </div>
+        </div>
+
+        <fieldset class="col-md-6">
+          <legend class="fs-6">Gender</legend>
+
+          <div class="form-check">
+            <input
+              id="male" name="gender" value="male" type="radio"
+              class="form-check-input" required
+              aria-describedby="gender-feedback"
+            >
+            <label for="male" class="form-check-label">Male</label>
+          </div>
+
+          <div class="form-check">
+            <input
+              id="female" name="gender" value="female" type="radio"
+              class="form-check-input" required
+              aria-describedby="gender-feedback"
+            >
+            <label for="female" class="form-check-label">Female</label>
+          </div>
+
+          <div class="form-check">
+            <input
+              id="private" name="gender" value="prefer-not-to-say" type="radio"
+              class="form-check-input" required
+              aria-describedby="gender-feedback"
+            >
+            <label for="private" class="form-check-label">
+              Prefer not to say
+            </label>
+          </div>
+
+          <div id="gender-feedback" class="small mt-1" aria-live="polite"></div>
+        </fieldset>
+
+        <fieldset class="col-md-6">
+          <legend class="fs-6">Hobbies (optional)</legend>
+
+          <div class="form-check">
+            <input
+              id="coding" name="hobbies" value="coding"
+              type="checkbox" class="form-check-input"
+            >
+            <label for="coding" class="form-check-label">Coding</label>
+          </div>
+
+          <div class="form-check">
+            <input
+              id="sports" name="hobbies" value="sports"
+              type="checkbox" class="form-check-input"
+            >
+            <label for="sports" class="form-check-label">Sports</label>
+          </div>
+
+          <div class="form-check">
+            <input
+              id="music" name="hobbies" value="music"
+              type="checkbox" class="form-check-input"
+            >
+            <label for="music" class="form-check-label">Music</label>
+          </div>
+        </fieldset>
+
+        <div class="col-12">
+          <label for="country" class="form-label">Country</label>
+          <select
+            id="country" name="country" class="form-select" required
+            aria-describedby="country-error country-valid"
+          >
+            <option value="">Choose your country</option>
+            <option value="KZ">Kazakhstan</option>
+            <option value="KG">Kyrgyzstan</option>
+            <option value="UZ">Uzbekistan</option>
+            <option value="OTHER">Other</option>
+          </select>
+          <div id="country-error" class="invalid-feedback">
+            Please select your country.
+          </div>
+          <div id="country-valid" class="valid-feedback">Looks good!</div>
+        </div>
+
+        <div class="col-12 d-flex gap-2">
+          <button class="btn btn-primary" type="submit">Register</button>
+          <button class="btn btn-outline-secondary" type="reset">Reset</button>
+        </div>
+
+        <div class="col-12">
+          <p class="form-status mb-0" role="status"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+</body>
+</html>    
